@@ -1,0 +1,17 @@
+#button-new-book {
+  margin: 40px 0;
+
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+#empty-warning {
+  display: inline-block;
+  color: red;
+  padding-left: 10px;
+  visibility: hidden;
+}
