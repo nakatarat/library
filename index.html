@@ -24,47 +24,47 @@
     <tbody id="table-body"></tbody>
   </table>
 
-  <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg" id="button-new-book">New Book</button>
-  </div>
 
-  <form id="add-book-form">
-      <div class="form-group row">
-        <label for="book-title" class="col-sm-2 col-form-label">Title</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="book-title" placeholder="The Great Woods">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="book-author" class="col-sm-2 col-form-label">Author</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="book-author" placeholder="John Smith">
-        </div>
-      </div>
+  <button type="button" class="btn btn-light btn-block" id="button-new-book">New Book</button>
+  <p id="message-added">Book added!</p>
 
-      <div class="form-group row">
-        <label for="form-pages" class="col-sm-2 col-form-label">Pages</label>
-        <div class="col-sm-2">
-          <input type="number" class="form-control" id="form-pages" placeholder="0">
-        </div>
-      </div>
-
-
+  <div id="form-wrapper" class="hide">
+    <form id="add-book-form">
         <div class="form-group row">
-          <div class="col-sm-2">Read status</div>
+          <label for="book-title" class="col-sm-2 col-form-label">Title</label>
           <div class="col-sm-10">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="read-check">
-              <label class="form-check-label" for="read-check">
-                Finished
-              </label>
-            </div>
+            <input type="text" class="form-control" id="book-title" placeholder="The Great Woods">
           </div>
         </div>
-    </form>
-  <button id="button-add-book" class="btn btn-primary">Add Book</button>
-  <p id="empty-warning">Cannot add book with missing fields</p>
+        <div class="form-group row">
+          <label for="book-author" class="col-sm-2 col-form-label">Author</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="book-author" placeholder="John Smith">
+          </div>
+        </div>
 
+        <div class="form-group row">
+          <label for="form-pages" class="col-sm-2 col-form-label">Pages</label>
+          <div class="col-sm-2">
+            <input type="number" class="form-control" id="form-pages" placeholder="0">
+          </div>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-sm-2">Read status</div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="read-check">
+                <label class="form-check-label" for="read-check">
+                  Finished
+                </label>
+              </div>
+            </div>
+          </div>
+      </form>
+    <button id="button-add-book" class="btn btn-success">Add Book</button>
+    <p id="empty-warning">Cannot add book with missing fields</p>
+  </div>
 
 </body>
 <script src="./app.js"></script>

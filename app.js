@@ -1,18 +1,24 @@
 // SELECTORS
 const tableBody = document.getElementById('table-body');
 const addBookButton = document.getElementById('button-add-book')
+const newBookButton = document.getElementById('button-new-book');
 
+const form = document.getElementById('form-wrapper');
 const formTitle = document.getElementById('book-title');
 const formAuthor = document.getElementById('book-author');
 const formPages = document.getElementById('form-pages');
 const formRead = document.getElementById('read-check');
 
-const warning = document.getElementById('empty-warning')
+const warning = document.getElementById('empty-warning');
+const bookAddedMessage = document.getElementById('message-added');
 
 // EVENT LISTENERS
 addBookButton.addEventListener('click', addBookToList);
+newBookButton.addEventListener('click', newBookFormToggle);
 tableBody.addEventListener('click', e => removeBook(e));
 tableBody.addEventListener('click', e => bookReadToggle(e));
+
+
 
 let myLibrary = [];
 
@@ -36,6 +42,7 @@ Book.prototype.bookReadToggle = function () {
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+
 }
 
 // TEST BOOKS
@@ -83,7 +90,7 @@ function addBookToList () {
     warning.style.visibility = 'visible';
     setTimeout(() => {
       warning.style.visibility = 'hidden';
-    }, 2500);
+    }, 3000);
     return;
   }
 
@@ -91,10 +98,23 @@ function addBookToList () {
   addBookToLibrary(book);
   renderBook(book);
 
+
   formTitle.value = '';
   formAuthor.value = '';
   formPages.value = '';
   formRead.checked = false;
+
+  addBookHideForm();
+}
+
+function addBookHideForm () {
+  form.classList.remove('show');
+  form.classList.add('hide');
+  form.style.display = 'block';
+  bookAddedMessage.style.display = 'block';
+  setTimeout(() => {
+  bookAddedMessage.style.display = 'none';    
+  }, 2000);
 }
 
 
@@ -114,7 +134,6 @@ function removeBook (e) {
 }
 
 function bookReadToggle (e) {
-  // console.log(e.target);
   if(e.target.className === 'far fa-circle' || e.target.className === 'fas fa-check-circle') {
     if (e.target.className === 'far fa-circle') {
       e.target.className = 'fas fa-check-circle';
@@ -128,5 +147,15 @@ function bookReadToggle (e) {
         book.bookReadToggle();
       }
     }
+  }
+}
+
+function newBookFormToggle () {
+  if (form.classList.contains('hide')) {
+    form.classList.remove('hide');
+    form.classList.add('show');
+  } else if (form.classList.contains('show')) {
+    form.classList.remove('show');
+    form.classList.add('hide');
   }
 }
